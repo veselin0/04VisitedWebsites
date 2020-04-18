@@ -34,3 +34,23 @@ function solveB() {
         p.textContent = `Visited ${newCount} times`;
     }
 }
+
+// Single listener
+function solveC() {
+    const containerElement = document.querySelector('.middled');
+
+    containerElement.addEventListener('click', (event) => {
+        const parent = event.target && event.target.parentElement;
+
+        if (parent && parent.tagName == 'A') {
+
+            const digits = parent.nextElementSibling
+                                 .textContent
+                                 .replace(/[^\d]/g, '');
+
+            const newCount = Number(digits) + 1;
+            parent.nextElementSibling.textContent = `Visited ${newCount} times`;
+
+        }
+    })
+}
