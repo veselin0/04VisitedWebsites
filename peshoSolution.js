@@ -1,4 +1,4 @@
-solveC()
+solveA()
 
 // Common solution
 function solveA() {
@@ -49,5 +49,22 @@ function solveC() {
             parent.nextElementSibling.textContent = `Visited ${newCount} times`;
 
         }
+    })
+}
+
+// Listener on the wrap just above the link
+function solveD() {
+    const linkWraps = document.querySelectorAll('.link-1');
+
+    linkWraps.forEach(wrapNode => {
+        wrapNode.addEventListener('click', (event) => {
+            // event.currentTarget is the element the event listener is assigned to
+            // it should be the as wrapNode
+            const p = event.currentTarget.querySelector('p');
+            const [unusedWord, count] = p.textContent.split(' ');
+            const newCount = Number(count) + 1;
+
+            p.textContent = `Visited ${newCount} times`;
+        })
     })
 }
