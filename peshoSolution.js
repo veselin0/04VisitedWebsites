@@ -44,10 +44,7 @@ function solveC() {
 
         if (parent && parent.tagName == 'A') {
 
-            const digits = parent.nextElementSibling
-                                 .textContent
-                                 .replace(/[^\d]/g, '');
-
+            const [digits] = parent.nextElementSibling.textContent.match(/\d+/);
             const newCount = Number(digits) + 1;
             parent.nextElementSibling.textContent = `Visited ${newCount} times`;
 
